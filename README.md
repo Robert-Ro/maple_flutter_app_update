@@ -24,6 +24,16 @@ dependencies:
     git: https://github.com/your-org/maple_app_update.git
 ```
 
+**Pin to a specific commit / tag / branch:**
+
+```yaml
+dependencies:
+  maple_app_update:
+    git:
+      url: https://github.com/your-org/maple_app_update.git
+      ref: v1.0.0 # tag, branch name, or commit hash
+```
+
 **Using path (for local development):**
 
 ```yaml
