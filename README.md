@@ -16,6 +16,16 @@ A reusable Flutter app update library with Riverpod providers.
 
 Add this to your package's `pubspec.yaml` file:
 
+**Using git:**
+
+```yaml
+dependencies:
+  maple_app_update:
+    git: https://github.com/your-org/maple_app_update.git
+```
+
+**Using path (for local development):**
+
 ```yaml
 dependencies:
   maple_app_update:
@@ -115,13 +125,13 @@ UpdateDialogBuilder myCustomDialogBuilder = (context, newVersion, currentVersion
 
 ## Providers
 
-| Provider | Description |
-|----------|-------------|
-| `checkAppUpdateProvider` | Checks for app updates |
-| `installAndroidProvider` | Installs Android APK |
-| `installIosProvider` | Opens iOS App Store |
-| `openStoreUrlProvider` | Opens URL in external browser |
-| `isVersionNewerProvider` | Compares version strings |
+| Provider                   | Description                                  |
+| -------------------------- | -------------------------------------------- |
+| `checkAppUpdateProvider`   | Checks for app updates                       |
+| `installAndroidProvider`   | Installs Android APK                         |
+| `installIosProvider`       | Opens iOS App Store                          |
+| `openStoreUrlProvider`     | Opens URL in external browser                |
+| `isVersionNewerProvider`   | Compares version strings                     |
 | `appUpdateApiCallProvider` | API call implementation (must be overridden) |
 
 ## Models
