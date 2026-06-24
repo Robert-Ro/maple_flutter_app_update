@@ -21,7 +21,7 @@ Add this to your package's `pubspec.yaml` file:
 ```yaml
 dependencies:
   maple_app_update:
-    git: https://github.com/your-org/maple_app_update.git
+    git: https://github.com/Robert-Ro/maple_flutter_app_update.git
 ```
 
 **Pin to a specific commit / tag / branch:**
@@ -30,7 +30,7 @@ dependencies:
 dependencies:
   maple_app_update:
     git:
-      url: https://github.com/your-org/maple_app_update.git
+      url: https://github.com/Robert-Ro/maple_flutter_app_update.git
       ref: v1.0.0 # tag, branch name, or commit hash
 ```
 
