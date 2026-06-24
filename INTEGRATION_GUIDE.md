@@ -8,7 +8,7 @@
 
 - **名称**: maple_app_update
 - **版本**: 1.0.0
-- **位置**: `C:\Users\Administrator\Code\walle\maple_app_update`
+- **仓库**: `https://github.com/Robert-Ro/maple_flutter_app_update.git`
 - **依赖**: Riverpod 2.x, Flutter 3.10+
 
 ## 快速开始
@@ -20,7 +20,7 @@
 ```yaml
 dependencies:
   maple_app_update:
-    path: C:/Users/Administrator/Code/walle/maple_app_update
+    git: https://github.com/Robert-Ro/maple_flutter_app_update.git
 ```
 
 ### 2. 创建 API 调用 Provider
@@ -91,7 +91,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 Future<void> checkAndShowUpdate(WidgetRef ref, BuildContext context) async {
   final updateResult = await ref.read(checkAppUpdateProvider.future);
-  
+
   if (updateResult?.hasUpdate == true) {
     // 显示更新弹窗
     showDialog(
@@ -117,13 +117,13 @@ Future<void> checkAndShowUpdate(WidgetRef ref, BuildContext context) async {
 
 ## 核心 Providers
 
-| Provider | 返回类型 | 功能说明 |
-|----------|----------|----------|
-| `checkAppUpdateProvider` | `Future<AppUpdateResult?>` | 检查是否有新版本 |
-| `installAndroidProvider` | `Future<bool>` | Android 应用内安装 |
-| `installIosProvider` | `Future<bool>` | iOS 跳转 App Store |
-| `openStoreUrlProvider` | `Future<bool>` | 打开外部 URL |
-| `isVersionNewerProvider` | `bool` | 版本号比较 |
+| Provider                 | 返回类型                   | 功能说明           |
+| ------------------------ | -------------------------- | ------------------ |
+| `checkAppUpdateProvider` | `Future<AppUpdateResult?>` | 检查是否有新版本   |
+| `installAndroidProvider` | `Future<bool>`             | Android 应用内安装 |
+| `installIosProvider`     | `Future<bool>`             | iOS 跳转 App Store |
+| `openStoreUrlProvider`   | `Future<bool>`             | 打开外部 URL       |
+| `isVersionNewerProvider` | `bool`                     | 版本号比较         |
 
 ## 数据模型
 
@@ -181,13 +181,13 @@ sealed class IosAppUpdateVo with _$IosAppUpdateVo {
 
 ### 默认弹窗组件
 
-| 组件 | 用途 |
-|------|------|
-| `MapleUpdateDialog` | 更新提示弹窗 |
-| `MapleNoUpdateDialog` | 无更新提示 |
-| `MapleLoadingDialog` | 加载弹窗 |
+| 组件                     | 用途         |
+| ------------------------ | ------------ |
+| `MapleUpdateDialog`      | 更新提示弹窗 |
+| `MapleNoUpdateDialog`    | 无更新提示   |
+| `MapleLoadingDialog`     | 加载弹窗     |
 | `MapleDownloadingDialog` | 下载进度弹窗 |
-| `MapleErrorDialog` | 错误提示弹窗 |
+| `MapleErrorDialog`       | 错误提示弹窗 |
 
 ### 使用默认组件
 
@@ -309,10 +309,12 @@ class UserScreen extends HookConsumerWidget {
 ### 检查更新接口
 
 **请求**:
+
 - **URL**: `POST /api/app-packages/app/check-update`
 - **Content-Type**: `application/json`
 
 **请求体**:
+
 ```json
 {
   "packageName": "com.example.app",
@@ -323,6 +325,7 @@ class UserScreen extends HookConsumerWidget {
 ```
 
 **响应 (Android)**:
+
 ```json
 {
   "id": 1,
@@ -342,6 +345,7 @@ class UserScreen extends HookConsumerWidget {
 ```
 
 **响应 (iOS)**:
+
 ```json
 {
   "appName": "My App",
@@ -387,17 +391,17 @@ class UserScreen extends HookConsumerWidget {
 
 ### 常见问题
 
-| 问题 | 解决方案 |
-|------|----------|
-| `appUpdateApiCallProvider` 为 null | 检查 ProviderScope 中的 override 配置 |
-| 依赖解析失败 | 检查 pubspec.yaml 中的路径格式，使用 `/` 而非 `\` |
-| `overrideWithProvider` 已弃用 | 使用 `overrideWith` 替代 |
-| 代码生成失败 | 运行 `fvm dart run build_runner build --delete-conflicting-outputs` |
+| 问题                               | 解决方案                                                            |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| `appUpdateApiCallProvider` 为 null | 检查 ProviderScope 中的 override 配置                               |
+| 依赖解析失败                       | 检查 pubspec.yaml 中的路径格式，使用 `/` 而非 `\`                   |
+| `overrideWithProvider` 已弃用      | 使用 `overrideWith` 替代                                            |
+| 代码生成失败                       | 运行 `fvm dart run build_runner build --delete-conflicting-outputs` |
 
 ## 版本历史
 
-| 版本 | 变更 |
-|------|------|
+| 版本  | 变更                       |
+| ----- | -------------------------- |
 | 1.0.0 | 初始版本，包含基础更新功能 |
 
 ## 许可证
