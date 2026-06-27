@@ -43,8 +43,8 @@ Map<String, dynamic> _$AndroidAppUpdateVoToJson(_AndroidAppUpdateVo instance) =>
     };
 
 const _$AppPlatformEnumMap = {
-  AppPlatform.android: 'ANDROID',
-  AppPlatform.ios: 'IOS',
+  AppPlatform.android: 'android',
+  AppPlatform.ios: 'ios',
 };
 
 _IosAppUpdateVo _$IosAppUpdateVoFromJson(Map<String, dynamic> json) =>

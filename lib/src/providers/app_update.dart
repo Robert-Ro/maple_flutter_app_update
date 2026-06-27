@@ -33,7 +33,8 @@ Future<AppUpdateResult?> checkAppUpdate(Ref ref) async {
 
   final platform = Platform.isAndroid ? 'ANDROID' : 'IOS';
 
-  final result = await apiCall(packageName, platform, currentVersion, currentBuildNum);
+  final result =
+      await apiCall(packageName, platform, currentVersion, currentBuildNum);
 
   if (result == null || result.isEmpty) {
     return const AppUpdateResult(hasUpdate: false);

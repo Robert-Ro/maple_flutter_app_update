@@ -6,7 +6,7 @@ part of 'app_update.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$checkAppUpdateHash() => r'6f39c31111b46bd5b2fa75cd84ba23fdd1487549';
+String _$checkAppUpdateHash() => r'bf6b9d37dd6b5d0a135ea47f9d7b0faa1472135d';
 
 /// See also [checkAppUpdate].
 @ProviderFor(checkAppUpdate)

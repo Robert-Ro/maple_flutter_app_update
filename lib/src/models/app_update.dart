@@ -7,7 +7,7 @@ enum AppPlatform {
   @JsonValue('android')
   android,
   @JsonValue('ios')
-  ios,
+  ios;
 }
 
 @freezed
