@@ -4,9 +4,9 @@ part 'app_update.g.dart';
 part 'app_update.freezed.dart';
 
 enum AppPlatform {
-  @JsonValue('ANDROID')
+  @JsonValue('android')
   android,
-  @JsonValue('IOS')
+  @JsonValue('ios')
   ios,
 }
 

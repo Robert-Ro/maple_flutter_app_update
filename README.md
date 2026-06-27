@@ -16,6 +16,14 @@ A reusable Flutter app update library with Riverpod providers.
 
 Add this to your package's `pubspec.yaml` file:
 
+**Using local path (for development):**
+
+```yaml
+dependencies:
+  maple_app_update:
+    path: C:/Users/Administrator/Code/walle/maple_app_update
+```
+
 **Using git:**
 
 ```yaml
@@ -32,14 +40,6 @@ dependencies:
     git:
       url: https://github.com/Robert-Ro/maple_flutter_app_update.git
       ref: v1.0.0 # tag, branch name, or commit hash
-```
-
-**Using path (for local development):**
-
-```yaml
-dependencies:
-  maple_app_update:
-    path: /path/to/maple_app_update
 ```
 
 ### Usage
