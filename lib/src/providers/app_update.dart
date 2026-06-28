@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -78,25 +79,29 @@ Future<bool> installAndroid(Ref ref, AndroidAppUpdateVo appUpdate) async {
 }
 
 @riverpod
-Future<bool> installIos(Ref ref, IosAppUpdateVo appUpdate) async {
+Future<bool> installIos(Ref ref, IosAppUpdateVo appUpdate, ZoneCallback? callback) async {
   if (appUpdate.appUrl != null && appUpdate.appUrl!.isNotEmpty) {
     final uri = Uri.parse(appUpdate.appUrl!);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
       return true;
+    } else {
+      callback?.call();
     }
   }
   return false;
 }
 
 @riverpod
-Future<bool> openStoreUrl(Ref ref, String? url) async {
+Future<bool> openStoreUrl(Ref ref, String? url, ZoneCallback? callback) async {
   if (url == null) return false;
 
   final uri = Uri.parse(url);
   if (await canLaunchUrl(uri)) {
     await launchUrl(uri, mode: LaunchMode.externalApplication);
     return true;
+  } else {
+    callback?.call();
   }
   return false;
 }
