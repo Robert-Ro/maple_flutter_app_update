@@ -6,7 +6,7 @@ part of 'app_update.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$checkAppUpdateHash() => r'bf6b9d37dd6b5d0a135ea47f9d7b0faa1472135d';
+String _$checkAppUpdateHash() => r'6f39c31111b46bd5b2fa75cd84ba23fdd1487549';
 
 /// See also [checkAppUpdate].
 @ProviderFor(checkAppUpdate)
@@ -176,7 +176,7 @@ class _InstallAndroidProviderElement
       (origin as InstallAndroidProvider).appUpdate;
 }
 
-String _$installIosHash() => r'83025ce53c8661d171dd08d563853bfaa2687e6e';
+String _$installIosHash() => r'818371426f139b5c4e0ca9c9df15a784f6b2ea4e';
 
 /// See also [installIos].
 @ProviderFor(installIos)
@@ -190,9 +190,11 @@ class InstallIosFamily extends Family<AsyncValue<bool>> {
   /// See also [installIos].
   InstallIosProvider call(
     IosAppUpdateVo appUpdate,
+    dynamic Function()? callback,
   ) {
     return InstallIosProvider(
       appUpdate,
+      callback,
     );
   }
 
@@ -202,6 +204,7 @@ class InstallIosFamily extends Family<AsyncValue<bool>> {
   ) {
     return call(
       provider.appUpdate,
+      provider.callback,
     );
   }
 
@@ -225,10 +228,12 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
   /// See also [installIos].
   InstallIosProvider(
     IosAppUpdateVo appUpdate,
+    dynamic Function()? callback,
   ) : this._internal(
           (ref) => installIos(
             ref as InstallIosRef,
             appUpdate,
+            callback,
           ),
           from: installIosProvider,
           name: r'installIosProvider',
@@ -240,6 +245,7 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
           allTransitiveDependencies:
               InstallIosFamily._allTransitiveDependencies,
           appUpdate: appUpdate,
+          callback: callback,
         );
 
   InstallIosProvider._internal(
@@ -250,9 +256,11 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.appUpdate,
+    required this.callback,
   }) : super.internal();
 
   final IosAppUpdateVo appUpdate;
+  final dynamic Function()? callback;
 
   @override
   Override overrideWith(
@@ -268,6 +276,7 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         appUpdate: appUpdate,
+        callback: callback,
       ),
     );
   }
@@ -279,13 +288,16 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
 
   @override
   bool operator ==(Object other) {
-    return other is InstallIosProvider && other.appUpdate == appUpdate;
+    return other is InstallIosProvider &&
+        other.appUpdate == appUpdate &&
+        other.callback == callback;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, appUpdate.hashCode);
+    hash = _SystemHash.combine(hash, callback.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -296,6 +308,9 @@ class InstallIosProvider extends AutoDisposeFutureProvider<bool> {
 mixin InstallIosRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `appUpdate` of this provider.
   IosAppUpdateVo get appUpdate;
+
+  /// The parameter `callback` of this provider.
+  dynamic Function()? get callback;
 }
 
 class _InstallIosProviderElement extends AutoDisposeFutureProviderElement<bool>
@@ -304,9 +319,11 @@ class _InstallIosProviderElement extends AutoDisposeFutureProviderElement<bool>
 
   @override
   IosAppUpdateVo get appUpdate => (origin as InstallIosProvider).appUpdate;
+  @override
+  dynamic Function()? get callback => (origin as InstallIosProvider).callback;
 }
 
-String _$openStoreUrlHash() => r'd038f9e3354f749923889e014efefa2dd915a556';
+String _$openStoreUrlHash() => r'29d20196de3d623ab5096e5d041702fae8666e47';
 
 /// See also [openStoreUrl].
 @ProviderFor(openStoreUrl)
@@ -320,9 +337,11 @@ class OpenStoreUrlFamily extends Family<AsyncValue<bool>> {
   /// See also [openStoreUrl].
   OpenStoreUrlProvider call(
     String? url,
+    dynamic Function()? callback,
   ) {
     return OpenStoreUrlProvider(
       url,
+      callback,
     );
   }
 
@@ -332,6 +351,7 @@ class OpenStoreUrlFamily extends Family<AsyncValue<bool>> {
   ) {
     return call(
       provider.url,
+      provider.callback,
     );
   }
 
@@ -355,10 +375,12 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
   /// See also [openStoreUrl].
   OpenStoreUrlProvider(
     String? url,
+    dynamic Function()? callback,
   ) : this._internal(
           (ref) => openStoreUrl(
             ref as OpenStoreUrlRef,
             url,
+            callback,
           ),
           from: openStoreUrlProvider,
           name: r'openStoreUrlProvider',
@@ -370,6 +392,7 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
           allTransitiveDependencies:
               OpenStoreUrlFamily._allTransitiveDependencies,
           url: url,
+          callback: callback,
         );
 
   OpenStoreUrlProvider._internal(
@@ -380,9 +403,11 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.url,
+    required this.callback,
   }) : super.internal();
 
   final String? url;
+  final dynamic Function()? callback;
 
   @override
   Override overrideWith(
@@ -398,6 +423,7 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         url: url,
+        callback: callback,
       ),
     );
   }
@@ -409,13 +435,16 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
 
   @override
   bool operator ==(Object other) {
-    return other is OpenStoreUrlProvider && other.url == url;
+    return other is OpenStoreUrlProvider &&
+        other.url == url &&
+        other.callback == callback;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, url.hashCode);
+    hash = _SystemHash.combine(hash, callback.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -426,6 +455,9 @@ class OpenStoreUrlProvider extends AutoDisposeFutureProvider<bool> {
 mixin OpenStoreUrlRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `url` of this provider.
   String? get url;
+
+  /// The parameter `callback` of this provider.
+  dynamic Function()? get callback;
 }
 
 class _OpenStoreUrlProviderElement
@@ -434,6 +466,8 @@ class _OpenStoreUrlProviderElement
 
   @override
   String? get url => (origin as OpenStoreUrlProvider).url;
+  @override
+  dynamic Function()? get callback => (origin as OpenStoreUrlProvider).callback;
 }
 
 String _$isVersionNewerHash() => r'46bb3b70c4a5d64f322adbcff46e0eb4a40472ad';
